@@ -1,0 +1,16 @@
+// Custom.scss
+// Option B: Подключите весь Bootstrap
+
+// Требуемое
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: (
+  "primary": #849dff,
+  "danger": #ff8487,
+  "success": #68dd7b,
+  "warning": #ffc184,
+  "primary-gradient": linear-gradient(#ff8884, #ffa284)
+);
+$primary-gradient: linear-gradient(#ff8884, #ffa284);
