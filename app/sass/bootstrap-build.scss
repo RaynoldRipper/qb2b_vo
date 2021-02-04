@@ -1,6 +1,9 @@
 // Требуемое
-@import 'bootstrap-customs';
+@import 'bootstrap-settings';
 
 // Опциональное
 @import '../../node_modules/bootstrap/scss/grid';
 @import '../../node_modules/bootstrap/scss/modal';
+@import '../../node_modules/bootstrap/scss/toasts';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/utilities';

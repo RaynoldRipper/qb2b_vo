@@ -1,0 +1,63 @@
+@mixin burger-lines {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $gray-400;
+    border-radius: 5px;
+}
+
+.settings {
+    border-left: 1px solid $gray-400;
+}
+
+.icon {
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+        padding-right: 30px;
+        height: 100%;
+    }
+
+    &-style {
+        display: block;
+        margin: auto;
+        fill: $gray-400;
+        max-width: 35px;
+        max-height: 35px;
+        width: 100%;
+    }
+}
+
+.menu {
+    border-left: 1px solid $gray-400;
+}
+
+.burger {
+    display: flex;
+    margin: auto;
+    width: 26px;
+    height: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: content-box;
+    &__line {
+        margin: auto;
+        position: relative;
+        @include burger-lines;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            @include burger-lines;
+        }
+
+        &::before {
+            position: absolute;
+            top: -6px;
+            content: '';
+            @include burger-lines;
+        }
+    }
+}

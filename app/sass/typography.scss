@@ -1,0 +1,10 @@
+@for $i from 1 through 7 {
+    .text-#{$i} {
+        $font-size: $i * 2 + 6px;
+        font-size: $font-size;
+    }
+    .title-#{$i}{
+        $title: $i * 2 + 20px;
+        font-size: $title;
+    }
+}

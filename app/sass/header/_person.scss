@@ -1,0 +1,73 @@
+.person {
+    &-col{
+        max-width: 260px;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    &-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__picture {
+        position: relative;
+    }
+
+    &__image {
+        max-width: 55px;
+        max-height: 55px;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 15px;
+    }
+
+    &__head {
+        color: $gray-500;
+        text-transform: uppercase;
+        line-height: 1rem;
+    }
+
+    &__type {
+        line-height: 16px;
+    }
+
+    &__body {
+        line-height: 1.2rem;
+    }
+
+    &__body .link {
+        color: $gray-700;
+        font-weight: bold;
+    }
+
+    &__footer {
+        color: $gray-600;
+        font-weight: bold;
+        line-height: 1rem;
+    }
+
+    &__indicator {
+        position: absolute;
+        right: 4px;
+        width: 12px;
+        height: 12px;
+        border: 2px solid $white;
+        border-radius: 50%;
+        bottom: 2px;
+        margin-right: 15px;
+        display: block;
+
+        &--active {
+            background-color: $success;
+        }
+        &--deactive{
+            background-color: $secondary;
+        }
+    }
+}

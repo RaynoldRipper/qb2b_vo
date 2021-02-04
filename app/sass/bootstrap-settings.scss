@@ -1,0 +1,49 @@
+// Custom.scss
+// Option B: Подключите весь Bootstrap
+
+// Требуемое
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// $theme-colors: (
+//   "primary": #849dff,
+//   "danger": #ff8487,
+//   "success": #68dd7b,
+//   "warning": #ffc184,
+//   "primary-gradient": linear-gradient(#ff8884, #ffa284)
+// );
+$primary:#849dff;
+$danger:#ff8487;
+$success:#68dd7b;
+$warning:#ffc184;
+$blue:    #8dbff3 !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+$brand :  #e16012 !default;
+$colors: (
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800
+) !default;
+
+@import "../../node_modules/bootstrap/scss/root";
+
+$primary-gradient: linear-gradient(#ff8884, #ffa284);

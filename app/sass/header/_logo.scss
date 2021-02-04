@@ -1,0 +1,22 @@
+.logo{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &__link{
+        display: flex;
+        align-items: center;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    &__coube{
+        width: 56px;
+        height: 56px;
+        border: 3px solid $brand;
+    }&__text{
+        font-size: 26px;
+        color: $black;
+        font-weight: bold;
+        margin-left: -40px;
+        background-color: $white;
+    }
+}

@@ -1,0 +1,11 @@
+@import './header/person';
+@import './header/logo';
+@import './header/menu';
+
+.main-header{
+    border-bottom: 1px solid $gray-300;
+}
+.header-row{
+    display: flex;
+    flex-wrap: wrap;
+}

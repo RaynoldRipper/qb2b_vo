@@ -1,5 +1,17 @@
-@import 'bootstrap-customs';
+@import 'bootstrap-settings';
+
 @import 'header';
 @import 'footer';
 @import 'variables';
+@import 'typography';
 @import 'services/services.scss';
+@import 'fonts.scss';
+
+body{
+    font-family: 'SF UI Display', 'serif';
+}
+.primary-btn{
+    display: block;
+    padding: 10px;
+    background-color: $primary;
+}
