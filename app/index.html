@@ -13,12 +13,13 @@
     <header class="main-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md logo">
+                <div class="logo">
                     <a href="/" class="logo__link">
                         <div class="logo__coube"></div>
                         <div class="logo__text">КУБ2Б</div>
                     </a>
                 </div>
+                <div class="flex-grow"></div>
                 <div class="person-col">
                     <div class="person">
                         <div class="person-row">
@@ -65,32 +66,131 @@
                         </div>
                     </div>
                 </div>
-                <div class="settings">
-                    <div class="icon-wrapper">
-                        <svg class="icon-style">
-                            <use xlink:href="./img/dest/symbol/svg/sprite.symbol.svg#src--settings" />
-                        </svg>
+                <div class="settings-wrapper">
+                    <a href="#" class="settings">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#settings" />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="settings__window">
+                        <div class="settings__head">
+                            <h4 class="settings__title text-5">Лицевой счет:</h4>
+                            <span class="settings__sub-title text-3">ID: 3242342353456435</span>
+                        </div>
+                        <div class="settings__body">
+                            <a href="#" class="settings__row wallet text-3">569.00 RUB</a>
+                            <a href="#" class="settings__row text-3">Настройка профиля</a>
+                            <a href="#" class="settings__row text-3">Подключенные услуги</a>
+                            <a href="#" class="settings__row text-3">Выйти из профиля</a>
+                        </div>
                     </div>
                 </div>
-                <div class="menu">
+                <a href="#" class="menu">
                     <div class="icon-wrapper">
                         <div class="burger">
                             <i class="burger__line"></i>
                         </div>
                     </div>
-                    <div class="menu__list">
-                        <div class="menu__item">
-                            <div class="icon-wrapper">
-                                <svg class="icon-style">
-                                    <use xlink:href="./img/dest/symbol/svg/sprite.symbol.svg#edest--calc" />
-                                </svg>
-                            </div>
-                        </div>
+
+                </a>
+                <div class="menu__list">
+                    <div class="menu__title">
+                        <p class="title-text text-7 mb-0">Меню</p>
                     </div>
+                    <a href="#" class="menu__item active">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#user" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Личный профиль</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#analityc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Аналитика</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#calc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Бухгалтерская отчетность</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#ticket" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Подключенные услуги</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#company" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Мои компании</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </header>
+    <main class="main">
+        <div class="container">
+            <div class="row pt-3 pb-3">
+                <div class="col-md-4 col-lg-3">
+                    <a href="#" class="btn">Выбор тарифного плана</a>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <a href="#" class="btn">Список разовых услуг</a>
+                </div>
+                <div class="col-md-4 col-lg-3 right">
+                    <a href="#" class="btn-link">История изменений</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="current-tarif">
+                        <div class="current-tarif__header">
+                            <div class="text-4 pb-2">Текущий тариф: <span
+                                    class="title-3 current-tarif__tarif-name">СМАРТ</span></div>
+                            <div class="text-4 pb-3">Текущий баланс: <span class="title-3 current-tarif__balance">859
+                                    RUB</span></div>
+                        </div>
+                        <div class="current-tarif__body">
+                            <div class="current-tarif__field text-4">ОПФ: <b>ООО</b></div>
+                            <div class="current-tarif__field text-4">Система налогооблажения: <b>ОСНО</b></div>
+                            <div class="current-tarif__field text-4">Кол-во сотрудников: <b>10 человек</b></div>
+                            <div class="current-tarif__field text-4">Стоимость обслуживания: <b>107 000 RUB</b></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="calc">
+                        <h2 class="calc__title">Калькулятор услуг</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="./js/jquery-3.5.1.slim.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/app.min.js"></script>

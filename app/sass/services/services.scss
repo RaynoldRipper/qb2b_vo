@@ -1,0 +1,32 @@
+@mixin wrapper {
+    background-color: $white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: $main-shadow;
+}
+.current-tarif{
+    @include wrapper;
+    &__header{
+        color: $gray-500;
+        text-transform: uppercase;
+    }
+    &__tarif-name{
+        margin-left: 15px;
+        vertical-align: sub;
+        color: $black;
+        font-weight: bold;
+    }
+    &__balance{
+        margin-left: 5px;
+        color: $success;
+        font-weight: bold;
+        vertical-align: sub;
+    }
+    &__field{
+        border-top: 1px solid $gray-300;
+        padding: 20px 8px;
+    }
+}
+.calc{
+    @include wrapper;
+}

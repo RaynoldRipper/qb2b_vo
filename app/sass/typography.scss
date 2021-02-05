@@ -7,4 +7,14 @@
         $title: $i * 2 + 20px;
         font-size: $title;
     }
+    @include media-breakpoint-down(md){
+        .text-#{$i}{
+            $font-size: $i * 2 + 4px;
+            font-size: $font-size;
+        }
+        .title-#{$i}{
+            $title: $i * 2 + 16px;
+            font-size: $title;
+        }
+    }
 }

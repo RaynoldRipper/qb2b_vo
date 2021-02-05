@@ -164,6 +164,6 @@
   exports.img = img;
   exports.cleanimg = cleanimg;
   exports.webpEncode = webpEncode;
-  exports.spriteCopile = spriteCopile;
-  exports.build = series(cleandist, styles, styles_bootstrap, scripts, img, buildcopy, spriteCopile);
-  exports.default = parallel(styles, styles_bootstrap, scripts, browsersync, cleanimg, img, startwatch, webpEncode, spriteCopile);
+//   exports.spriteCopile = spriteCopile;
+  exports.build = series(cleandist, styles, styles_bootstrap, scripts, img, buildcopy);
+  exports.default = parallel(styles, styles_bootstrap, scripts, browsersync, img, startwatch, webpEncode);

@@ -28,6 +28,10 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 $brand :  #e16012 !default;
+$background: #f1f2f6 !default;
+$primary-gradient: linear-gradient(to top,#ff8884, #ffa284);
+$main-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
 $colors: (
   "blue": $blue,
   "indigo": $indigo,
@@ -45,5 +49,4 @@ $colors: (
 ) !default;
 
 @import "../../node_modules/bootstrap/scss/root";
-
-$primary-gradient: linear-gradient(#ff8884, #ffa284);
+@import 'mixins'

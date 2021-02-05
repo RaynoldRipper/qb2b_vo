@@ -1,6 +1,7 @@
 .logo{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    @include header-padding;
+    padding-left: 15px;
+    padding-right: 15px;
     &__link{
         display: flex;
         align-items: center;
@@ -18,5 +19,17 @@
         font-weight: bold;
         margin-left: -40px;
         background-color: $white;
+    }
+}
+@include media-breakpoint-down(sm){
+    .logo{
+        &__coube{
+            width: 45px;
+            height: 45px;
+        }
+        &__text{
+            font-size: 20px;
+            margin-left: -30px;
+        }
     }
 }

@@ -1,0 +1,40 @@
+@mixin header-padding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include media-breakpoint-down(sm) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@mixin header-height {
+    height: 56px;
+
+    @include media-breakpoint-down(sm) {
+        height: 45px;
+    }
+}
+
+@mixin header-icons-padding {
+    padding-left: 33px;
+    padding-right: 33px;
+
+    @include media-breakpoint-down(sm) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    @include media-breakpoint-down(xs) { 
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@mixin menu-padding {
+    padding: 10px 25px;
+}

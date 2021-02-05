@@ -2,10 +2,13 @@
 @import './header/logo';
 @import './header/menu';
 
-.main-header{
+.main-header {
     border-bottom: 1px solid $gray-300;
+    position: relative;
+    background: $white;
 }
-.header-row{
+
+.header-row {
     display: flex;
     flex-wrap: wrap;
 }
