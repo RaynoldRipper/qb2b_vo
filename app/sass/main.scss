@@ -5,73 +5,146 @@
 @import 'variables';
 @import 'typography';
 @import 'services/services.scss';
+@import './buh/buh.scss';
+@import './task/task.scss';
 @import 'fonts.scss';
 
-body{
+body {
     font-family: 'SF UI Display', 'serif';
     background-color: $background;
 }
-.primary-btn{
-    display: block;
-    padding: 10px;
-    background-color: $primary;
-}
-.flex-grow{
+
+.flex-grow {
     flex-grow: 1;
 }
-.wallet{
+
+.wallet {
     text-transform: uppercase;
     font-weight: bold;
 }
-.right{
+
+.right {
     margin-left: auto;
     text-align: right;
 }
-.btn-link{
-    padding: 15px 0;
-    display: block;
-    color: $gray-800;
-    text-decoration: underline;
-    &:hover{
-        color: $black;
-    }
-}
-.btn{
+
+.btn {
     display: block;
     font-size: 14px;
     line-height: 20px;
     padding: 15px 30px;
     border-radius: 30px;
-    color: $gray-800;
     text-align: center;
-    border: 1px solid $gray-500;
     font-weight: 500;
     transition: all .3s;
-    &:hover{
+
+    &:hover {
         text-decoration: none;
-        color: inherit;
-        opacity: 0.6;
+        opacity: 0.8;
     }
-    &--stroke{
-        &.active{
+
+    &--stroke {
+        color: $gray-800;
+        border: 1px solid $gray-500;
+
+        &:hover {
+            color: inherit;
+        }
+
+        &.active {
             background-color: $white;
             border-color: transparent;
         }
     }
-}
-@media (min-width:992px) and (max-width:1144px) {
-    .main{
-        padding-right: 92px;
-    }
-}
-@media (min-width:768px) and (max-width:904px) {
-    .main{
-        padding-right: 92px;
-    }
-}
-@include media-breakpoint-down(xl) {
-    .btn{
-        padding: 15px 16px;
+
+    &-wrapper {
+        max-width: 290px;
+        margin: auto;
     }
 
+    &-accessibility{
+        border: none;
+        background: none;
+    }
+}
+
+.primary-btn {
+    display: block;
+    padding: 10px;
+    background-color: $primary;
+}
+
+.gradient-btn {
+    background: $primary-gradient;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(255, 138, 132, 0.5);
+    text-shadow: 0px 1px 0px #a24743;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.success-btn {
+    background: $success-gradient;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(132, 255, 172, .5);
+    text-shadow: 0px 1px 0px #64bf74;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.btn-link {
+    padding: 15px 0;
+    display: block;
+    color: $gray-800;
+    text-decoration: underline;
+
+    &:hover {
+        color: $black;
+    }
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0)
+  }
+
+@media (min-width:992px) and (max-width:1144px) {
+    .main {
+        padding-right: 92px;
+    }
+}
+
+@media (min-width:768px) and (max-width:904px) {
+    .main {
+        padding-right: 92px;
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    .btn {
+        // padding: 15px 16px;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .btn {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+    .mobile-hide{
+        display: none;
+    }
 }

@@ -1,11 +1,16 @@
 @mixin wrapper {
     background-color: $white;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: $main-shadow;
 }
+@import './custom-inputs';
+@import './tarif-card.scss';
+@import './tarif-table.scss';
 .current-tarif{
     @include wrapper;
+    position: sticky;
+    top: 10px;
     &__header{
         color: $gray-500;
         text-transform: uppercase;
@@ -20,7 +25,7 @@
         margin-left: 5px;
         color: $success;
         font-weight: bold;
-        vertical-align: sub;
+        vertical-align: middle;
     }
     &__field{
         border-top: 1px solid $gray-300;
@@ -29,4 +34,50 @@
 }
 .calc{
     @include wrapper;
+    &__title{
+        font-weight: 500;
+        margin-bottom: 0;
+        padding-bottom: 25px;
+        padding-left: 15px;
+        border-bottom: 1px solid $gray-300;
+    }
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__label-radio{
+        position: relative;
+        margin-bottom: 0;
+        cursor: pointer;
+        transition: all .3s;
+    }
+    &__sub-title{
+        font-weight: bold;
+    }
+    &__wrapper{
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 20px;
+    }
+}
+.calc-dop{
+    @include wrapper;
+    transition: all .3s;
+}
+@include media-breakpoint-down(md){
+    .tab{
+        &-item{
+            max-width: 50%;
+            &:first-child{
+                padding-right: 0;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md){
+    .current-tarif{
+        &__wrapper{
+            padding-right: 0;
+        }
+    }
 }

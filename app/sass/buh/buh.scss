@@ -1,0 +1,156 @@
+.main-table {
+    width: 100%;
+
+    &__wrapper {
+        @include wrapper;
+    }
+
+    &__row--head &__cell {
+        color: $gray-500;
+    }
+
+    &__row {
+        border-bottom: 1px solid $gray-400;
+    }
+
+    &__cell {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        color: $gray-700;
+    }
+
+    &__status {
+        position: relative;
+        font-weight: bold;
+
+        &--success {
+            color: $success;
+            .main-table__link:hover .main-table__download-icon{
+                fill: $success;
+            }
+        }
+
+        &--danger {
+            color: $danger;
+            .main-table__link:hover .main-table__download-icon{
+                fill: $danger;
+            }
+        }
+    }
+
+    &__btn-wrapper {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: -10px;
+        transform: translateY(-50%);
+        top: 50%;
+        max-width: 30px;
+        transition: all .3s;
+        min-height: 30px;
+        user-select: none;
+        .btn{
+            position: absolute;
+            right: 10px;
+            z-index: 10;
+            width: 30px;
+            height: 30px;
+            &:hover .three-dots{
+                animation: 1.2s linear infinite alternate dotanimation;
+                animation-delay: .4s;
+                &::before{
+                    animation: 1.2s linear infinite alternate dotanimation;
+                // animation-delay: .5s;
+            }
+                &::after{
+                    animation: 1.2s linear infinite alternate dotanimation;
+                animation-delay: .8s;
+            }
+            }
+        }
+        &.active{
+            max-width: 210px;
+            background-color: #ffffff;
+            -webkit-box-shadow: 0 0 0 #fff;
+            box-shadow: 0 0 20px #dadada;
+            padding: 16px 22px;
+            border-radius: 30px;
+            .main-table__download{
+                visibility: visible;
+                padding-right: 15px;
+                opacity: 1;
+            }
+        }
+    }
+    &__download{
+        opacity: 0;
+        white-space: nowrap;
+        visibility: hidden;
+        transition: all .3s;
+        &-icon{
+            max-width: 15px;
+            max-height: 15px;
+            padding-left: 15px;
+            box-sizing: content-box;
+            fill: $danger;
+            transition: all .3s;
+        }
+    }
+    &__link{
+        color: $gray-700;
+        transition: all .3s;
+        &:hover{
+            opacity: .8;
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+
+.three-dots {
+    right: 5px;
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $gray-400;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $gray-400;
+        top: 10px;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $gray-400;
+        pointer-events: none;
+    }
+}
+@keyframes dotanimation{
+    0%{
+        background-color: $gray-400;
+    }
+    50%{
+        background-color: $primary;
+    }
+    100%{
+        background-color: $gray-400;
+    }
+}

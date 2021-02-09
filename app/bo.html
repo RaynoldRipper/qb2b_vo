@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <title>Бухгалтерская отчетность</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo">
+                    <a href="/" class="logo__link">
+                        <div class="logo__coube"></div>
+                        <div class="logo__text">КУБ2Б</div>
+                    </a>
+                </div>
+                <div class="flex-grow"></div>
+                <div class="person-col">
+                    <div class="person">
+                        <div class="person-row">
+                            <div class="person__picture">
+                                <div class="person__image">
+                                    <img src="./img/dest/lena.png" alt="">
+                                </div>
+                                <i class="person__indicator person__indicator--active"></i>
+                            </div>
+                            <div class="person__info">
+                                <div class="person__head">
+                                    <span class="person__type text-3">Личный менеджер:</span>
+                                </div>
+                                <div class="person__body">
+                                    <a href="tel:+7 (495) 555-55-44" class="link text-5">+7 (495) 555-55-44</a>
+                                </div>
+                                <div class="person__footer">
+                                    <span class="text-3">Рахмаева Елена</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="person-col">
+                    <div class="person">
+                        <div class="person-row">
+                            <div class="person__picture">
+                                <div class="person__image">
+                                    <img src="./img/dest/company.png" alt="">
+                                </div>
+                                <i class="person__indicator person__indicator--deactive"></i>
+                            </div>
+                            <div class="person__info">
+                                <div class="person__head">
+                                    <span class="person__type text-3">Текущий профиль:</span>
+                                </div>
+                                <div class="person__body">
+                                    <a href="tel:+7 (495) 555-55-44" class="link text-5">ООО “Токито-Авто”</a>
+                                </div>
+                                <div class="person__footer">
+                                    <span class="text-3">Сменить профиль</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-wrapper">
+                    <a href="#" class="settings">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#settings" />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="settings__window">
+                        <div class="settings__head">
+                            <h4 class="settings__title text-5">Лицевой счет:</h4>
+                            <span class="settings__sub-title text-3">ID: 3242342353456435</span>
+                        </div>
+                        <div class="settings__body">
+                            <a href="#" class="settings__row wallet text-3">569.00 RUB</a>
+                            <a href="#" class="settings__row text-3">Настройка профиля</a>
+                            <a href="#" class="settings__row text-3">Подключенные услуги</a>
+                            <a href="#" class="settings__row text-3">Выйти из профиля</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="menu">
+                    <div class="icon-wrapper">
+                        <div class="burger">
+                            <i class="burger__line"></i>
+                        </div>
+                    </div>
+
+                </a>
+                <div class="menu__list">
+                    <div class="menu__title">
+                        <p class="title-text text-7 mb-0">Меню</p>
+                    </div>
+                    <a href="./index.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#user" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Личный профиль</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#analityc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Аналитика</p>
+                        </div>
+                    </a>
+                    <a href="./bo.html" class="menu__item active">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#calc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Бухгалтерская отчетность</p>
+                        </div>
+                    </a>
+                    <a href="./task.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#ticket" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Задачи</p>
+                        </div>
+                    </a>
+                    <a href="./index.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#connected" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Подключенные услуги</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#company" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Мои компании</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 pt-3">
+                    <div class="main-table__wrapper">
+                        <h1 class="title-2">Бухгалтерская отчетность</h1>
+                        <table class="main-table text-4">
+                            <thead>
+                                <tr class="main-table__row main-table__row--head">
+                                    <th class="main-table__cell">Название отчета</th>
+                                    <th class="main-table__cell mobile-hide">Период</th>
+                                    <th class="main-table__cell mobile-hide">Сумма налога</th>
+                                    <th class="main-table__cell mobile-hide">Срок сдачи</th>
+                                    <th class="main-table__cell main-table__status">Статус</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="main-table__row ">
+                                    <td class="main-table__cell">ССЧ</td>
+                                    <td class="main-table__cell mobile-hide">19.01.2020 - 19.02.2020</td>
+                                    <td class="main-table__cell mobile-hide">9 500 RUB</td>
+                                    <td class="main-table__cell mobile-hide">19.02.2020</td>
+                                    <td class="main-table__cell main-table__status main-table__status--success">Сдан
+                                        <div class="main-table__btn-wrapper text-3">
+                                            <div class="main-table__download">
+                                                <a class="main-table__link" href="#">
+                                                    Скачать отчет [PDF]
+                                                    <svg class="main-table__download-icon">
+                                                        <use xlink:href="./img/dest/sprite.svg#download" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <button class="btn btn-accessibility"><i class="three-dots"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="main-table__row ">
+                                    <td class="main-table__cell">ССЧ</td>
+                                    <td class="main-table__cell mobile-hide">19.01.2020 - 19.02.2020</td>
+                                    <td class="main-table__cell mobile-hide">9 500 RUB</td>
+                                    <td class="main-table__cell mobile-hide">19.02.2020</td>
+                                    <td class="main-table__cell main-table__status main-table__status--danger">Сдан
+                                        <div class="main-table__btn-wrapper text-3">
+                                            <div class="main-table__download">
+                                                <a class="main-table__link" href="#">Скачать отчет [PDF]
+                                                    <svg class="main-table__download-icon">
+                                                        <use xlink:href="./img/dest/sprite.svg#download" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <button class="btn btn-accessibility"><i class="three-dots"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="main-table__row ">
+                                    <td class="main-table__cell">ССЧ</td>
+                                    <td class="main-table__cell mobile-hide">19.01.2020 - 19.02.2020</td>
+                                    <td class="main-table__cell mobile-hide">9 500 RUB</td>
+                                    <td class="main-table__cell mobile-hide">19.02.2020</td>
+                                    <td class="main-table__cell main-table__status">Сдан<div
+                                            class="main-table__btn-wrapper text-3">
+                                            <div class="main-table__download">
+                                                <a class="main-table__link" href="#">Скачать отчет [PDF]
+                                                    <svg class="main-table__download-icon">
+                                                        <use xlink:href="./img/dest/sprite.svg#download" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <button class="btn btn-accessibility"><i class="three-dots"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="main-table__row ">
+                                    <td class="main-table__cell">ССЧ</td>
+                                    <td class="main-table__cell mobile-hide">19.01.2020 - 19.02.2020</td>
+                                    <td class="main-table__cell mobile-hide">9 500 RUB</td>
+                                    <td class="main-table__cell mobile-hide">19.02.2020</td>
+                                    <td class="main-table__cell main-table__status">Сдан
+                                        <div class="main-table__btn-wrapper text-3">
+                                            <div class="main-table__download">
+                                                <a class="main-table__link" href="#">Скачать отчет [PDF]
+                                                    <svg class="main-table__download-icon">
+                                                        <use xlink:href="./img/dest/sprite.svg#download" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <button class="btn btn-accessibility"><i class="three-dots"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/jquery-3.5.1.slim.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/app.min.js"></script>
+</body>
+
+</html>

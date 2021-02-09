@@ -1,0 +1,81 @@
+.custom-form {
+    position: relative;
+
+    &__input {
+        &-wrapper {
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+
+        &-label {
+            position: absolute;
+            transform: translateY(-50%);
+            left: 0;
+            top: 50%;
+            left: 18px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #ffffff;
+            user-select: none;
+            transition: all .3s;
+        }
+
+        &-hidden {
+            &:focus {
+                box-shadow: 0 0 2px 1px $primary;
+            }
+        }
+
+        margin-bottom: 0;
+        width: 100%;
+        border: 1px solid $gray-400;
+        padding: 20px 20px;
+        border-radius: 8px;
+        outline: none;
+        transition: all .3s;
+
+        &:focus {
+            box-shadow: 0 0 2px 1px $primary;
+
+            ~.custom-form__input-label,
+            ~label.custom-form__input-label {
+                top: 0px;
+            }
+        }
+    }
+
+    .custom-form__textarea-wrapper {
+        height: 100%;
+
+        .custom-form__input {
+            resize: none;
+            height: 100%;
+            color: $gray-600;
+        }
+
+        .custom-form__input-label {
+            top: 25px;
+            color: $gray-600;
+        }
+    }
+
+    &__file-title {
+        color: $gray-500;
+    }
+}
+
+.accessibility {
+    &-input {
+        &:focus {
+            ~.accessibility-label {
+                box-shadow: 0 0 2px 1px $primary;
+            }
+            ~.custom-form__input-label {
+                top: 0;
+            }
+        }
+    }
+}

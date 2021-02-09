@@ -1,0 +1,58 @@
+.table {
+    &__wrapper {
+        @include wrapper;
+        -webkit-transition: max-height .5s cubic-bezier(0, 1, 0, 1);
+        -o-transition: max-height .5s cubic-bezier(0, 1, 0, 1);
+        transition: max-height .5s cubic-bezier(0, 1, 0, 1);
+        padding: 0;
+        position: relative;
+        max-height: 490px;
+        overflow: hidden;
+    }
+
+    &__text {
+        display: block;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    &__title {
+        display: block;
+        text-align: center;
+        font-weight: 700;
+    }
+    &__item {
+        padding-bottom: 35px;
+        padding-top: 35px;
+    }
+    &__section{
+        background-color: rgba(132, 157, 255, 0.6);
+    }
+    &__cell-name--title {
+        color: $white;
+    }
+    &__cell-name {
+        border-bottom: 1px solid #d3d3d3;
+    }
+    &__cell {
+        padding-top: 25px;
+        padding-bottom: 26px;
+        text-align: center;
+    }
+}
+.check-disable {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+.check-active, .check-disable, .check-preactive {
+    display: block;
+    margin: auto;
+    width: 19px;
+    height: 100%;
+    background: url(../../img/dest/tarif-check.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.row-name{
+    margin-bottom: 0;
+}

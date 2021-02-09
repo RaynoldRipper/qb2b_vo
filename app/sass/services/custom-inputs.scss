@@ -1,0 +1,266 @@
+.range_container {
+    position: relative;
+    width: 80px;
+    /*input range width*/
+    height: 10px;
+    /*input range height*/
+    overflow: hidden;
+}
+
+input[type='range'] {
+    transition: all .3s;
+    width: 100%;
+    height: 4px;
+    margin: 10px 0;
+    -webkit-appearance: none;
+
+    // overflow: hidden;
+    &:focus {
+        outline: none;
+    }
+}
+
+.range {
+    &__total {
+        transition: all .3s;
+
+        &.hide {
+            transform: translateX(-50px);
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &__count {
+        &.active {
+            position: absolute;
+            transition: all .3s;
+            color: $black;
+            font-weight: bold;
+        }
+    }
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: linear-gradient($primary, $primary) no-repeat $gray-200;
+    border-radius: 1px;
+    border: 0px solid #000000;
+    -webkit-appearance: none;
+    background-size: 0% 100%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    height: 10px;
+    // cursor: ew-resize;
+    background: #ffffff;
+    // box-shadow: -80px 0 0 80px $primary;
+    // box-shadow: 0px 0px 0px #000000;
+    border: 4px solid $gray-300;
+    height: 15px;
+    width: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+    transition: all .3s;
+}
+
+input[type='range'].active::-webkit-slider-thumb {
+    border-color: $primary;
+    transition: all .3s;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: $primary;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: $gray-300;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background-color: $primary;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background-color: $gray-300;
+}
+
+.custom {
+    &__radio-input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    &__radio {
+        padding-right: 15px;
+
+        .calc__label-radio {
+            &:focus {
+                outline: 1px solid #000000;
+            }
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                background-color: $gray-400;
+                border-radius: 50%;
+                vertical-align: middle;
+                margin-right: 10px;
+                transition: all .2s;
+            }
+        }
+
+        .calc__label-radio::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 3px;
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background-color: $white;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+            transition: all .2s;
+        }
+    }
+
+    &__range {
+        &-wrapper {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        position: relative;
+        width: 100%;
+
+        &-input {
+            width: 100%;
+            border: 2px solid transparent;
+            padding: 8px 15px;
+            border-bottom: 2px solid $gray-300;
+            outline: none;
+            transition: all .3s;
+
+            &:focus {
+                border-color: $primary;
+            }
+
+            &:focus~.custom__label-text {
+                top: -10px;
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__checkbox {
+        &-input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+    }
+
+    &__label {
+        &-text {
+            background-color: $white;
+            color: $gray-500;
+            position: absolute;
+            padding-left: 5px;
+            padding-right: 5px;
+            left: 15px;
+            top: 10px;
+            transition: all .3s;
+        }
+
+        &-checkbox {
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                transition: all .3s;
+                border-radius: 3px;
+                display: inline-block;
+                margin-right: 8px;
+                width: 18px;
+                height: 18px;
+                background-color: $gray-400;
+                vertical-align: middle;
+                background-size: 13px 13px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+}
+
+.input__filled .custom__label-text {
+    top: -10px;
+    font-size: 12px;
+}
+
+.input__filled .custom__text-input {
+    border-bottom-color: $primary;
+}
+
+.range__label {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    color: $gray-500;
+}
+
+.custom__radio-input:checked~.calc__label-radio::after {
+    width: 7px;
+    height: 7px;
+    top: 8px;
+    left: 4px;
+}
+.custom__field input:focus ~ .calc__label-radio::before,.custom__field input:focus ~ .custom__label-checkbox::before{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(132, 157, 255, 0.4);
+}
+
+.custom__radio-input:checked~.calc__label-radio::before {
+    background-color: $primary;
+}
+
+.custom__checkbox-input:checked~.custom__label-checkbox {
+    &::before {
+        background-color: $primary;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .custom {
+        &__radio {
+            padding-right: 15px;
+
+            .calc__label-radio::after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 3px;
+            }
+        }
+    }
+
+    .custom__radio-input:checked~.calc__label-radio::after {
+        top: 6px;
+    }
+}
