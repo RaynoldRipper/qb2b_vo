@@ -1,15 +1,20 @@
 .custom-form {
     position: relative;
-
     &__input {
         &-wrapper {
             position: relative;
-
             &:not(:last-child) {
                 margin-bottom: 15px;
             }
+            &.input__filled {
+                .custom-form__input {
+                    border-color: $primary;
+                }
+                label.custom-form__input-label {
+                    top: 0;
+                }
+            }
         }
-
         &-label {
             position: absolute;
             transform: translateY(-50%);
@@ -21,14 +26,13 @@
             background-color: #ffffff;
             user-select: none;
             transition: all .3s;
+            cursor: text;
         }
-
         &-hidden {
             &:focus {
                 box-shadow: 0 0 2px 1px $primary;
             }
         }
-
         margin-bottom: 0;
         width: 100%;
         border: 1px solid $gray-400;
@@ -36,34 +40,64 @@
         border-radius: 8px;
         outline: none;
         transition: all .3s;
-
         &:focus {
             box-shadow: 0 0 2px 1px $primary;
-
             ~.custom-form__input-label,
             ~label.custom-form__input-label {
                 top: 0px;
             }
         }
+        &:hover {
+            border-color: $primary;
+        }
     }
-
     .custom-form__textarea-wrapper {
         height: 100%;
-
         .custom-form__input {
             resize: none;
             height: 100%;
             color: $gray-600;
         }
-
         .custom-form__input-label {
             top: 25px;
             color: $gray-600;
         }
     }
-
     &__file-title {
         color: $gray-500;
+    }
+    &__file-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__file-item {
+        display: flex;
+        justify-content: space-between;
+        width: 45%;
+        padding: 10px 15px;
+        border: 1px solid $gray-400;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    &__file-delete {
+        display: inline-block;
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+        background-color: $gray-200;
+        border-radius: 50%;
+        text-align: center;
+        color: #000;
+        font-size: 14px;
+        line-height: 19px;
+        cursor: pointer;
+        transition: all .3s;
+        &:hover {
+            text-decoration: none;
+            background-color: $gray-500;
+            color: #ffffff;
+        }
     }
 }
 
@@ -76,6 +110,71 @@
             ~.custom-form__input-label {
                 top: 0;
             }
+        }
+    }
+    &-label {
+        cursor: pointer;
+    }
+    &-wrapper {
+        div.custom-form__input-label {
+            cursor: pointer;
+            pointer-events: none;
+        }
+    }
+}
+
+.line-form {
+    &__field {
+        position: relative;
+        &::after {
+            content: '';
+            transition: all .3s;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            height: 1px;
+            width: 0;
+        }
+        &.field-focus::after {
+            width: 100%;
+            background-color: $primary;
+        }
+    }
+    &__input {
+        position: relative;
+        width: 100%;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: none;
+        border-bottom: 1px solid $gray-300;
+        outline: none;
+    }
+    &__label {
+        position: absolute;
+        left: 0;
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .custom-form {
+        &__input {
+            padding: 10px 12px;
+        }
+        &__textarea-wrapper {
+            min-height: 150px;
+        }
+        &__file-delete {
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            line-height: 17px;
+        }
+        &__file-item {
+            padding: 5px 5px;
         }
     }
 }

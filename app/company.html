@@ -167,46 +167,79 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 pt-4 pb-4">
-                    <div class="task">
-                        <h1 class="title-2 wrapper-title pb-4">Обращение в отдел сервиса</h1>
+                    <div class="company">
                         <div class="custom-form__wrapper">
-                            <form action="" class="custom-form">
+                            <form action="" class="line-form">
                                 <div class="row">
-                                    <div class="col-md-4 pb-4 text-3">
-                                        <div class="custom-form__input-wrapper">
-                                            <input type="text" class="custom-form__input" id="task-name" name="task_theme">
-                                            <label class="custom-form__input-label" for="task-name">Тема
-                                                обращения</label>
-                                        </div>
-                                        <div class="custom-form__input-wrapper">
-                                            <div class="accessibility-wrapper">
-                                                <input type="file" class="visually-hidden accessibility-input" name="task_files" id="task-files" multiple>
-                                                <label class="custom-form__input accessibility-label" for="task-files"><br></label>
-                                                <div class="custom-form__input-label">Прикрепить файл</div>
+                                    <div class="col-md-8">
+                                        <div class="row company__info">
+                                            <div class="col-md-12">
+                                                <h1 class="title-2 wrapper-title pb-4">Сведения о компании</h1>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="name">
+                                                    <label for="" class="line-form__label">Краткое название организациии:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" name="address_off">
+                                                    <label for="" class="line-form__label">Юридический адрес:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="org-name" name="fullname">
+                                                    <label for="" class="line-form__label">Полное название организации</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" name="address">
+                                                    <label for="" class="line-form__label">Фактический адрес:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-org-name" name="name">
+                                                    <label for="input-org-name" class="line-form__label">ИНН</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-name" name="name">
+                                                    <label for="name" class="line-form__label">ФИО директора:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-kpp" name="kpp">
+                                                    <label for="input-kpp" class="line-form__label">КПП:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-payment">
+                                                    <label for="input-payment" class="line-form__label">Расчетный счет:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-ogrn" name="ogrn">
+                                                    <label for="input-ogrn" class="line-form__label">ОГРН:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="line-form__field">
+                                                    <input class="line-form__input" type="text" id="input-bank">
+                                                    <label for="input-bank" class="line-form__label">Банк:</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="custom-form__input-wrapper">
-                                            <label class="custom-form__input accessibility-label" for="task-files">
-                                                <input type="file" class="visually-hidden" name="task_files" id="task-files">
-                                                <div class="custom-form__input-label">Файлы</div><br>
-                                            </label>
-                                        </div> -->
                                     </div>
-                                    <div class="col-md-8 pb-4 text-3">
-                                        <div class="custom-form__input-wrapper custom-form__textarea-wrapper">
-                                            <textarea class="custom-form__input" id="task-textarea" name="task_textarea"></textarea>
-                                            <label class="custom-form__input-label" for="task-textarea">Тема
-                                                обращения</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 pb-3">
-                                        <button class="btn gradient-btn btn--task">СОЗДАТЬ ОБРАЩЕНИЕ</button>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="custom-form__file-title text-3 pb-3">Прикрепленные файлы:</div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="custom-form__file-list text-3"></div>
+                                    <div class="col-md-4">
+
                                     </div>
                                 </div>
                             </form>

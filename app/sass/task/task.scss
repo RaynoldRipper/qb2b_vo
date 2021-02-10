@@ -1,4 +1,21 @@
 @import './form.scss';
-.task{
+.task {
     @include wrapper;
+    padding: 30px 40px;
+}
+
+.task-list {
+    @include wrapper;
+    padding: 30px 40px;
+}
+
+@include media-breakpoint-down(md) {
+    .task {
+        padding: 20px;
+        .btn--task {
+            text-align: center;
+            margin: auto;
+            padding: 8px 20px;
+        }
+    }
 }
