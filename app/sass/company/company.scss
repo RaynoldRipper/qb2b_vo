@@ -4,4 +4,44 @@
         margin-right: 0;
         @include wrapper;
     }
+    &__drop-documents {
+        @include wrapper;
+        padding: 22px;
+    }
+    &__drop-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 90px;
+        padding-bottom: 40px;
+        background-color: $gray-300;
+        border-radius: 8px;
+        &__picture {
+            padding-bottom: 30px;
+        }
+        &__text {
+            color: $gray-500;
+        }
+    }
+    &__documents {
+        &-descriptins {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &-name {
+            color: $gray-500
+        }
+        &-type {
+            font-weight: bold;
+            color: $gray-600
+        }
+        &-item {
+            @include wrapper;
+            display: flex;
+            .three-dots__btn {
+                margin: auto 0 auto auto;
+            }
+        }
+    }
 }

@@ -1,3 +1,5 @@
+// support variables
+var render;
 // global functions 
 function fadeDelete(time, elem) {
     elem.style.transition = 'all .' + time + 's'
@@ -24,6 +26,56 @@ function show(time, elem) {
     }, 1);
 }
 
+function onClickClose(elem) { // вызвать в момент показа окна, где elem - окно
+    function outsideClickListener(event) {
+        if (!elem.contains(event.target) && isVisible(elem) && render == 1) { // проверяем, что клик не по элементу и элемент виден
+            fadeDelete(500, elem)
+            document.removeEventListener('click', outsideClickListener);
+            render = 0;
+            if (document.querySelector('.three-dots__btn')) {
+                let btn = document.querySelector('.three-dots__btn')
+                btn.classList.toggle('active');
+            }
+        } else {
+            render = 1;
+        }
+    }
+    document.addEventListener('click', outsideClickListener)
+}
+
+function isVisible(elem) { //открыто ли условное окно
+    return !!elem && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+}
+
+function moreBtn(elem) {
+    if (document.querySelector('.poop')) {
+        event.preventDefault();
+        let poop = document.querySelector('.poop');
+        fadeDelete(500, poop);
+        elem.classList.remove('active')
+    } else {
+        event.preventDefault();
+        elem.classList.toggle('active')
+        console.log(elem);
+        if (elem.closest('.company__documents-item')) {
+            let elemItem = elem.closest('.company__documents-item');
+            let html =
+                `<div class="poop">
+                    <h2 class="text-5 wrapper-title pb-1">Действие</h2>
+                    <div class="poop__buttons">
+                        <a href="#" class="poop__btn text-3 poop__btn--success">Скачать файл</a>
+                        <a href="#" class="poop__btn text-3 poop__btn--warninig">Удалить</a>
+                    </div>
+                </div>`;
+            elemItem.insertAdjacentHTML('beforeend', html)
+            let poop = document.querySelector('.poop');
+            if (render !== 1) onClickClose(poop);
+            else if (render === 0) fadeDelete(500, poop);
+            show(500, poop);
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     let menuBtn = document.querySelector('.menu');
     let menu = document.querySelector('.menu__list');
@@ -39,9 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
         settingWindow.classList.toggle('active');
     })
 
-    // Функция для текстовых полей
+    // Функции для форм с сайта **************************************************************************************************************
     if (document.querySelector('.line-form')) {
         let form = document.querySelector('.line-form');
+        let fields = document.querySelectorAll('.line-form__field');
         let inputs = form.querySelectorAll('input[type=text]');
         inputs.forEach(element => {
             element.addEventListener('focus', (e) => {
@@ -52,9 +105,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 let field = e.target.closest('.line-form__field');
                 field.classList.remove('field-focus')
             })
+            element.addEventListener('input', (e) => {
+                let currentField = element.closest('.line-form__field');
+                if (element.value.length > 0) {
+                    currentField.classList.add('line-form__field--filled')
+                } else if (element.value.length <= 0) {
+                    currentField.classList.remove('line-form__field--filled');
+                }
+            })
         });
     }
-    if (document.querySelector('input[type=text], input[type=number], input[type=tel]')) {
+    if (document.querySelector('input[type=text], input[type=number], input[type=tel]') && !document.querySelector('.line-form')) {
         let inputs = document.querySelectorAll('input[type=text], input[type=number], input[type=tel], textarea');
         inputs.forEach(element => {
             element.addEventListener('input', function() {
@@ -126,6 +187,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         });
     }
+    // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     if (document.querySelector('.main-table__btn-wrapper .btn')) {
         let downBtn = document.querySelectorAll('.main-table__btn-wrapper .btn');
         downBtn.forEach(element => {
@@ -140,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
         });
-
+        //* Обработчик файлов при постановке задачи *************************************************************************************
     }
     if (document.querySelector('.task .custom-form input')) {
         let form = document.querySelector('.custom-form')

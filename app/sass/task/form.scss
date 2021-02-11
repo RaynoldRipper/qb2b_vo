@@ -125,20 +125,32 @@
 
 .line-form {
     &__field {
+        margin-bottom: 20px;
         position: relative;
         &::after {
             content: '';
-            transition: all .3s;
+            transition: all .5s;
             position: absolute;
             bottom: 0;
             left: 0;
             display: block;
-            height: 1px;
+            height: 2px;
             width: 0;
         }
-        &.field-focus::after {
-            width: 100%;
-            background-color: $primary;
+        &.field-focus {
+            &::after {
+                width: 100%;
+                background-color: $primary;
+            }
+        }
+        &.line-form__field--filled {
+            .line-form__label {
+                left: 15px;
+                font-size: 12px;
+                &.line-form__label--top {
+                    top: -10px;
+                }
+            }
         }
     }
     &__input {
@@ -151,11 +163,64 @@
         border: none;
         border-bottom: 1px solid $gray-300;
         outline: none;
+        transition: all .3s;
+        font-size: 14px;
+        font-weight: bold;
+        &:focus {
+            ~.line-form__label {
+                left: 15px;
+                font-size: 12px;
+                &.line-form__label--top {
+                    top: -10px;
+                }
+            }
+        }
     }
     &__label {
         position: absolute;
-        left: 0;
-        display: none;
+        left: 20px;
+        top: 10px;
+        font-size: 14px;
+        color: $gray-600;
+        transition: all .5s;
+        user-select: none;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .line-form {
+        &__field {
+            &--label-inline {
+                .line-form__input {
+                    &#input-payment:focus {
+                        padding-left: 110px;
+                    }
+                    &#input-ogrn:focus {
+                        padding-left: 52px;
+                    }
+                    &#input-bank:focus {
+                        padding-left: 48px;
+                    }
+                    &:focus {
+                        padding-left: 45px;
+                    }
+                }
+            }
+            &--label-inline.line-form__field--filled {
+                .line-form__input {
+                    padding-left: 45px;
+                    &#input-payment {
+                        padding-left: 110px;
+                    }
+                    &#input-ogrn {
+                        padding-left: 52px;
+                    }
+                    &#input-bank {
+                        padding-left: 48px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -175,6 +240,29 @@
         }
         &__file-item {
             padding: 5px 5px;
+        }
+    }
+    .line-form {
+        &__label {
+            font-size: 12px;
+        }
+        &__input {
+            &:focus {
+                ~.line-form__label {
+                    left: 15px;
+                    font-size: 12px;
+                    top: -10px;
+                }
+            }
+        }
+        &__field {
+            &.line-form__field--filled {
+                .line-form__label {
+                    left: 15px;
+                    font-size: 12px;
+                    top: -10px;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,83 @@
+@mixin three-dots-anim {
+    animation: 1.2s linear infinite alternate dotanimation;
+    animation-delay: .4s;
+    &::before {
+        animation: 1.2s linear infinite alternate dotanimation;
+        // animation-delay: .5s;
+    }
+    &::after {
+        animation: 1.2s linear infinite alternate dotanimation;
+        animation-delay: .8s;
+    }
+}
+
+.three-dots {
+    &__btn {
+        border: none;
+        outline: none;
+        background-color: initial;
+        height: 35px;
+        width: 35px;
+        text-align: center;
+        &:hover {
+            .three-dots__icon {
+                @include three-dots-anim;
+            }
+        }
+        &.active {
+            .three-dots__icon {
+                @include three-dots-anim;
+            }
+        }
+    }
+    &__icon {
+        margin: auto;
+        position: relative;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $gray-400;
+        pointer-events: none;
+        &--absolute {
+            position: absolute;
+            right: 5px;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: $gray-400;
+            top: 10px;
+            pointer-events: none;
+        }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 10px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: $gray-400;
+            pointer-events: none;
+        }
+    }
+}
+
+@keyframes dotanimation {
+    0% {
+        background-color: $gray-400;
+    }
+    50% {
+        background-color: $primary;
+    }
+    100% {
+        background-color: $gray-400;
+    }
+}
