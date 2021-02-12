@@ -5,6 +5,17 @@
     display: none;
     opacity: 0;
     transition: all .3s;
+    top: 0;
+    right: 65px;
+    padding-right: 40px;
+    &::before {
+        content: '';
+        position: absolute;
+        right: -23px;
+        top: 30px;
+        border: 9px solid transparent;
+        border-left: 15px solid #ffffff;
+    }
     &__buttons {
         padding-left: 10px;
     }
@@ -17,6 +28,15 @@
         &:hover {
             text-decoration: none;
             color: inherit;
+            &::before {
+                border-color: inherit;
+            }
+        }
+        &--success:hover {
+            color: $primary;
+        }
+        &--warninig:hover {
+            color: $danger;
         }
         &::before {
             content: '';

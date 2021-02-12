@@ -1,5 +1,7 @@
+'use strict';
 // support variables
-var render;
+var render = 0;
+var renderedItem;
 // global functions 
 function fadeDelete(time, elem) {
     elem.style.transition = 'all .' + time + 's'
@@ -27,17 +29,21 @@ function show(time, elem) {
 }
 
 function onClickClose(elem) { // вызвать в момент показа окна, где elem - окно
+    var localListen = 0;
+
     function outsideClickListener(event) {
-        if (!elem.contains(event.target) && isVisible(elem) && render == 1) { // проверяем, что клик не по элементу и элемент виден
-            fadeDelete(500, elem)
+        if (!elem.contains(event.target) && isVisible(elem) && localListen == 1) { // проверяем, что клик не по элементу и элемент виден
+            fadeDelete(300, elem)
+            render = 0
+            renderedItem = null
             document.removeEventListener('click', outsideClickListener);
-            render = 0;
-            if (document.querySelector('.three-dots__btn')) {
-                let btn = document.querySelector('.three-dots__btn')
-                btn.classList.toggle('active');
+            localListen = 0;
+            if (elem.closest('.company__documents-item').querySelector('.three-dots__btn')) {
+                let btn = elem.closest('.company__documents-item').querySelector('.three-dots__btn')
+                btn.classList.remove('active');
             }
         } else {
-            render = 1;
+            localListen = 1;
         }
     }
     document.addEventListener('click', outsideClickListener)
@@ -48,31 +54,49 @@ function isVisible(elem) { //открыто ли условное окно
 }
 
 function moreBtn(elem) {
-    if (document.querySelector('.poop')) {
-        event.preventDefault();
-        let poop = document.querySelector('.poop');
-        fadeDelete(500, poop);
-        elem.classList.remove('active')
-    } else {
-        event.preventDefault();
-        elem.classList.toggle('active')
-        console.log(elem);
-        if (elem.closest('.company__documents-item')) {
-            let elemItem = elem.closest('.company__documents-item');
-            let html =
-                `<div class="poop">
+    event.preventDefault();
+    // elem.classList.toggle('active')
+
+    if (elem.closest('.company__documents-item')) {
+        let elemItem = elem.closest('.company__documents-item');
+        let html =
+            `<div class="poop">
                     <h2 class="text-5 wrapper-title pb-1">Действие</h2>
                     <div class="poop__buttons">
                         <a href="#" class="poop__btn text-3 poop__btn--success">Скачать файл</a>
                         <a href="#" class="poop__btn text-3 poop__btn--warninig">Удалить</a>
                     </div>
                 </div>`;
+
+        if (elemItem !== renderedItem && elemItem.querySelector('.poop') === null && render === 0) {
+            elem.classList.add('active')
             elemItem.insertAdjacentHTML('beforeend', html)
-            let poop = document.querySelector('.poop');
-            if (render !== 1) onClickClose(poop);
-            else if (render === 0) fadeDelete(500, poop);
+            renderedItem = elemItem;
+            let poop = elemItem.querySelector('.poop');
+            show(300, poop);
+            render = 1
+            onClickClose(poop)
+        } else if (elemItem !== renderedItem && renderedItem !== null && typeof renderedItem !== 'undefined' && render === 1) {
+            let renderedPoop = renderedItem.querySelector('.poop')
+            let renderedDots = renderedItem.querySelector('.three-dots__btn')
+            renderedDots.classList.remove('active')
+            fadeDelete(300, renderedPoop)
+            elemItem.insertAdjacentHTML('beforeend', html)
+            elem.classList.add('active')
+            renderedItem = elemItem;
+            let poop = elemItem.querySelector('.poop');
             show(500, poop);
+            onClickClose(poop)
+            render = 1;
+        } else if (elemItem == renderedItem && render === 1) {
+            let renderedPoop = renderedItem.querySelector('.poop')
+            let renderedDots = renderedItem.querySelector('.three-dots__btn')
+            renderedDots.classList.remove('active')
+            fadeDelete(300, renderedPoop)
+            renderedItem = ''
+            render = 0
         }
+
     }
 }
 
@@ -95,7 +119,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.line-form')) {
         let form = document.querySelector('.line-form');
         let fields = document.querySelectorAll('.line-form__field');
-        let inputs = form.querySelectorAll('input[type=text]');
+        let inputs = form.querySelectorAll('input[type=text],input[type=tel], input[type=password]');
+
+        // Проверка на предзаполненность
+        function form_load_check(el) {
+            el.forEach(element => {
+                let currentField = element.closest('.line-form__field');
+                if (element.value.length > 0) {
+                    currentField.classList.add('line-form__field--filled')
+                }
+            });
+        }
+        setTimeout(() => {
+            form_load_check(inputs)
+        }, 10);
+
         inputs.forEach(element => {
             element.addEventListener('focus', (e) => {
                 let field = e.target.closest('.line-form__field');
@@ -186,6 +224,162 @@ document.addEventListener('DOMContentLoaded', function() {
                 else this.classList.remove('active');
             })
         });
+    }
+
+    // Drag and drop form
+    if (document.querySelector('.drop-form')) {
+        let dropForm = document.querySelector('.drop-form');
+        let dropContainer = document.querySelector('.company__drop-field');
+
+        // ************************ Drag and drop ***************** //
+
+        // Prevent default drag behaviors
+        ;
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropContainer.addEventListener(eventName, preventDefaults, false)
+            document.body.addEventListener(eventName, preventDefaults, false)
+        })
+
+        // Highlight drop area when item is dragged over it
+        ;
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropContainer.addEventListener(eventName, highlight, false)
+        })
+
+        ;
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropContainer.addEventListener(eventName, unhighlight, false)
+        })
+
+        // Handle dropped files
+        dropContainer.addEventListener('drop', handleDrop, false)
+
+        function preventDefaults(e) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+
+        function highlight(e) {
+            dropContainer.classList.add('dragged')
+        }
+
+        function unhighlight(e) {
+            dropContainer.classList.remove('dragged')
+        }
+
+        function handleDrop(e) {
+            var dt = e.dataTransfer
+            var files = dt.files
+
+            handleFiles(files)
+        }
+
+        let uploadProgress = []
+        let progressBar = document.querySelector('.progress-bar')
+
+        function initializeProgress(numFiles) {
+            progressBar.value = 0
+            uploadProgress = []
+
+            for (let i = numFiles; i > 0; i--) {
+                uploadProgress.push(0)
+            }
+        }
+
+        function updateProgress(fileNumber, percent) {
+            uploadProgress[fileNumber] = percent
+            let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
+            console.debug('update', fileNumber, percent, total)
+            progressBar.style.width = total + '%';
+        }
+
+        function handleFiles(files) {
+            files = [...files]
+            console.log(files);
+            initializeProgress(files.length)
+            files.forEach(uploadFile)
+            files.forEach(fileList)
+                // files.forEach(previewFile)
+        }
+
+        function fileList(file) {
+            let sizeMb = ((file.size / 1024) / 1024).toFixed(2)
+            let sizeKb = (file.size / 1024).toFixed(2)
+            let sizeOutput;
+            let fileType = file.name.split('.')[file.name.split('.').length - 1]
+            let docList = document.querySelector('.company__documents-list')
+            if (sizeMb < 0.1) sizeOutput = sizeKb + ' kb';
+            else sizeOutput = sizeMb + 'mb';
+            let template = `
+            <div class="company__documents-item mb-3">
+                <div class="company__documents-picture">
+                    <img class="company__documents-image" src="./img/dest/mime-image.png" alt="">
+                </div>
+                <div class="company__documents-descriptins">
+                    <div class="company__documents-name text-4">${file.name}</div>
+                    <div class="company__documents-type text-3">*.${fileType} ${sizeOutput}</div>
+                </div>
+                <button class="three-dots__btn" onclick="moreBtn(this)">
+                    <i class="three-dots__icon"></i>
+                </button>
+            </div>`
+            docList.insertAdjacentHTML('beforeend', template);
+        }
+
+        function previewFile(file) {
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = function() {
+                let img = document.createElement('img')
+                img.src = reader.result
+                document.getElementById('gallery').appendChild(img)
+            }
+        }
+
+        function uploadFile(file, i) {
+            var url = 'https://api.cloudinary.com/v1_1/joezimim007/image/upload'
+            var xhr = new XMLHttpRequest()
+            var formData = new FormData()
+            xhr.open('POST', url, true)
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+
+            // Update progress (can be used to show progress indicator)
+            xhr.upload.addEventListener("progress", function(e) {
+                updateProgress(i, (e.loaded * 100.0 / e.total) || 100)
+            })
+
+            xhr.addEventListener('readystatechange', function(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    updateProgress(i, 100) // <- Add this
+                } else if (xhr.readyState == 4 && xhr.status != 200) {
+                    // Error. Inform the user
+                }
+            })
+
+            formData.append('upload_preset', 'ujpu6gyk')
+            formData.append('file', file)
+            xhr.send(formData)
+        }
+
+        // let count = 0;
+
+        // dropContainer.addEventListener('dragenter', (e) => {
+        //     let element = e.target;
+        //     dropContainer.classList.add('dragged')
+        //     count++
+        // })
+        // dropContainer.addEventListener('dragleave', (e) => {
+        //     count--
+        //     let element = e.target;
+        //     if (count === 0) {
+        //         dropContainer.classList.remove('dragged')
+        //     }
+        // })
+        // dropContainer.addEventListener('drop', (e) => {
+        //     // e.preventDefault();
+        //     // let element = e.target;
+        //     console.log('1')
+        // })
     }
     // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

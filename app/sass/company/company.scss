@@ -4,6 +4,18 @@
         margin-right: 0;
         @include wrapper;
     }
+    &__map {
+        @include wrapper;
+        &__download {
+            color: $gray-700;
+            font-weight: bold;
+            transition: all .3s;
+            &:hover {
+                color: $danger;
+                text-decoration: none;
+            }
+        }
+    }
     &__drop-documents {
         @include wrapper;
         padding: 22px;
@@ -17,8 +29,16 @@
         padding-bottom: 40px;
         background-color: $gray-300;
         border-radius: 8px;
+        outline-color: #fff;
+        transition: background-color .3s;
+        &.dragged {
+            outline: 2px dashed $gray-500;
+            background-color: $gray-200;
+            outline-offset: -8px
+        }
         &__picture {
             padding-bottom: 30px;
+            pointer-events: none;
         }
         &__text {
             color: $gray-500;
@@ -38,10 +58,25 @@
         }
         &-item {
             @include wrapper;
+            position: relative;
             display: flex;
             .three-dots__btn {
                 margin: auto 0 auto auto;
             }
         }
     }
+    &__drop-progress {
+        max-width: 150px;
+        max-height: 10px;
+        width: 100%;
+        .progress-bar {
+            background-color: $primary;
+            transition: all .3s !important;
+        }
+    }
 }
+
+// progress[value] {
+//     color: $primary;
+//     background-color: $primary;
+// }

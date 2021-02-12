@@ -1,0 +1,16 @@
+.profile {
+    &__info {
+        margin-left: 0;
+        margin-right: 0;
+        @include wrapper;
+    }
+    .profile__title {
+        font-weight: 500;
+        padding-left: 20px;
+    }
+    &__col {
+        &:not(:last-child) {
+            padding-right: 0;
+        }
+    }
+}

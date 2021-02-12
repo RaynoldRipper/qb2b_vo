@@ -167,80 +167,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 pt-4 pb-4">
-                    <div class="company">
+                    <div class="profile">
                         <div class="custom-form__wrapper">
                             <div class="row">
                                 <div class="col-md-8">
                                     <form action="" class="line-form pb-3">
-                                        <div class="row company__info">
-                                            <div class="col-md-12">
-                                                <h2 class="title-2 wrapper-title pb-4">Сведения о компании</h2>
-                                            </div>
-                                            <div class="col-lg-6">
+                                        <div class="row profile__info">
+                                            <div class="col-md-8">
+                                                <h2 class="profile__title title-2 wrapper-title pb-4 pt-3">Сведения о компании</h2>
                                                 <div class="line-form__field">
-                                                    <input class="line-form__input line-form__field--label-top" type="text" id="input-name">
-                                                    <label for="input-name" class="line-form__label line-form__label--top">Краткое название
-                                                        организациии:</label>
+                                                    <input class="line-form__input line-form__field--label-top" type="text" id="input-login" name="login">
+                                                    <label for="input-login" class="line-form__label line-form__label--top">Логин: </label>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <div class="line-form__field line-form__field--label-top">
-                                                    <input class="line-form__input" type="text" name="address_off" id="input-address-off">
-                                                    <label for="input-address-off" class="line-form__label line-form__label--top">Юридический
-                                                        адрес:</label>
+                                                    <input class="line-form__input" type="password" name="password" id="input-password">
+                                                    <label for="input-password" class="line-form__label line-form__label--top">Пароль: </label>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="line-form__field line-form__field--label-top">
-                                                    <input class="line-form__input" type="text" id="input-org-name" name="fullname">
-                                                    <label for="input-org-name" class="line-form__label line-form__label--top">Полное название
-                                                        организации:</label>
+                                                <div class="row">
+                                                    <div class="col-md-4 profile__col">
+                                                        <div class="line-form__field line-form__field--label-top">
+                                                            <input class="line-form__input" type="text" id="input-surname" name="surname">
+                                                            <label for="input-surname" class="line-form__label line-form__label--top">Фамилия</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 profile__col">
+                                                        <div class="line-form__field line-form__field--label-top">
+                                                            <input class="line-form__input" type="text" id="input-name" name="name">
+                                                            <label for="input-name" class="line-form__label line-form__label--top">Имя</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 profile__col">
+                                                        <div class="line-form__field line-form__field--label-top">
+                                                            <input class="line-form__input" type="text" id="input-midname" name="midname">
+                                                            <label for="input-midname" class="line-form__label line-form__label--top">Отчество</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <div class="line-form__field line-form__field--label-top">
                                                     <input class="line-form__input" type="text" name="address" id="input-address">
-                                                    <label for="input-address" class="line-form__label line-form__label--top ">Фактический
-                                                        адрес:</label>
+                                                    <label for="input-address" class="line-form__label line-form__label--top ">Контактный номер:</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <div class="line-form__field line-form__field--label-inline">
                                                     <input class="line-form__input" type="text" id="input-org-name" name="inn">
                                                     <label for="input-org-name" class="line-form__label">ИНН:</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <div class="line-form__field line-form__field--label-top">
                                                     <input class="line-form__input" type="text" id="input-dir-name" name="person_name">
                                                     <label for="input-dir-name" class="line-form__label line-form__label--top">ФИО
                                                         директора:</label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="line-form__field line-form__field--label-inline">
-                                                    <input class="line-form__input" type="text" id="input-kpp" name="kpp">
-                                                    <label for="input-kpp" class="line-form__label">КПП:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="line-form__field line-form__field--label-inline">
-                                                    <input class="line-form__input" type="text" id="input-payment">
-                                                    <label for="input-payment" class="line-form__label">Расчетный
-                                                        счет:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="line-form__field line-form__field--label-inline">
-                                                    <input class="line-form__input" type="text" id="input-ogrn" name="ogrn">
-                                                    <label for="input-ogrn" class="line-form__label">ОГРН:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="line-form__field line-form__field--label-inline">
-                                                    <input class="line-form__input" type="text" id="input-bank">
-                                                    <label for="input-bank" class="line-form__label">Банк:</label>
-                                                </div>
+                                            <div class="col-md-4">
+
                                             </div>
                                         </div>
                                     </form>

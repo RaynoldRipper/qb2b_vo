@@ -12,6 +12,7 @@
 @import './components/three-dots.scss';
 @import './components/poop.scss';
 @import './company/company.scss';
+@import './profile/profile.scss';
 body {
     font-family: 'SF UI Display', 'serif';
     background-color: $background;
@@ -118,6 +119,18 @@ body {
 
 .wrapper-title {
     font-weight: normal;
+}
+
+.download-icon {
+    max-width: 15px;
+    max-height: 15px;
+    padding-left: 15px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    fill: #ff8487;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
 }
 
 @media (min-width:992px) and (max-width:1144px) {
