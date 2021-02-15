@@ -1,0 +1,100 @@
+.page-wrapper {
+    @include wrapper;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.border-drop {
+    transition: all .3s;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    padding: 15px 10px;
+    padding-right: 30px;
+    border: 1px solid $gray-300;
+    &__icon {
+        position: absolute;
+        right: 10px;
+        display: block;
+        &__svg {
+            fill: $gray-400;
+            transition: all .3s;
+            width: 15px;
+            height: 15px;
+        }
+    }
+    &:hover {
+        border-color: $gray-500;
+        .border-drop__icon__svg {
+            fill: $gray-700;
+        }
+    }
+}
+
+.company-list {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    z-index: 5;
+    @include wrapper;
+    &__item {
+        display: flex;
+    }
+    &__avatar {
+        padding-right: 15px;
+    }
+    &__sub-title {
+        color: $gray-500;
+        text-transform: uppercase;
+    }
+    &__title {
+        margin-bottom: 0;
+        line-height: 16px;
+        color: $gray-700;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &__link {
+        color: $gray-600;
+        font-weight: 500;
+        transition: all .3s;
+        &:hover {
+            color: inherit;
+        }
+    }
+    &::before {
+        position: absolute;
+        right: 0;
+        top: -12px;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 20px 20px;
+        border-color: transparent transparent #fff transparent;
+    }
+}
+
+.balance {
+    font-weight: 500;
+}
+
+.link-style {
+    display: block;
+    color: $gray-500;
+    transition: all .3s;
+    text-decoration: underline;
+    &:hover {
+        color: $gray-800;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .page-wrapper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

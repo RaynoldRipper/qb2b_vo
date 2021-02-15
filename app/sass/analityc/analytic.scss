@@ -1,0 +1,21 @@
+.analytic {
+    &__date-field {
+        display: flex;
+        align-items: center;
+    }
+    &__calendar {
+        @include wrapper;
+    }
+}
+
+.icon-calendar {
+    width: 28px;
+    height: 26px;
+    fill: $gray-400;
+    margin-right: 20px;
+}
+
+.date-picer {
+    border: none;
+    color: $gray-600;
+}

@@ -185,6 +185,24 @@
         transition: all .5s;
         user-select: none;
     }
+    &__icon {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        fill: $gray-400;
+        transition: all .3s;
+        &:hover {
+            fill: $gray-600;
+        }
+        &-svg {
+            display: block;
+            width: 28px;
+            height: 24px;
+        }
+    }
 }
 
 @include media-breakpoint-up(md) {

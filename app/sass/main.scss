@@ -10,9 +10,12 @@
 @import 'fonts.scss';
 @import './components/total-rating.scss';
 @import './components/three-dots.scss';
+@import './components/form.scss';
 @import './components/poop.scss';
+@import './components/page-elements.scss';
 @import './company/company.scss';
 @import './profile/profile.scss';
+@import './analityc/analytic.scss';
 body {
     font-family: 'SF UI Display', 'serif';
     background-color: $background;
@@ -121,6 +124,22 @@ body {
     font-weight: normal;
 }
 
+.color-dark {
+    color: $gray-800;
+}
+
+.color-light-dark {
+    color: $gray-600;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .download-icon {
     max-width: 15px;
     max-height: 15px;
@@ -131,6 +150,13 @@ body {
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    opacity: 1;
+    background: none;
+    background-size: contain;
 }
 
 @media (min-width:992px) and (max-width:1144px) {
@@ -155,6 +181,9 @@ body {
     .btn {
         font-size: 12px;
         padding: 8px 5px;
+    }
+    .btn-pad {
+        padding: 10px 15px;
     }
     .mobile-hide {
         display: none;

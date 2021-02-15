@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="stylesheet" href="./css/simplepicker.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./css/daterangepicker.css" />
+
+    <title>Услуги</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo">
+                    <a href="/" class="logo__link">
+                        <div class="logo__coube"></div>
+                        <div class="logo__text">КУБ2Б</div>
+                    </a>
+                </div>
+                <div class="flex-grow"></div>
+                <div class="person-col">
+                    <div class="person">
+                        <div class="person-row">
+                            <div class="person__picture">
+                                <div class="person__image">
+                                    <img src="./img/dest/lena.png" alt="">
+                                </div>
+                                <i class="person__indicator person__indicator--active"></i>
+                            </div>
+                            <div class="person__info">
+                                <div class="person__head">
+                                    <span class="person__type text-3">Личный менеджер:</span>
+                                </div>
+                                <div class="person__body">
+                                    <a href="tel:+7 (495) 555-55-44" class="link text-5">+7 (495) 555-55-44</a>
+                                </div>
+                                <div class="person__footer">
+                                    <span class="text-3">Рахмаева Елена</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="person-col">
+                    <div class="person">
+                        <div class="person-row">
+                            <div class="person__picture">
+                                <div class="person__image">
+                                    <img src="./img/dest/company.png" alt="">
+                                </div>
+                                <i class="person__indicator person__indicator--deactive"></i>
+                            </div>
+                            <div class="person__info">
+                                <div class="person__head">
+                                    <span class="person__type text-3">Текущий профиль:</span>
+                                </div>
+                                <div class="person__body">
+                                    <a href="tel:+7 (495) 555-55-44" class="link text-5">ООО “Токито-Авто”</a>
+                                </div>
+                                <div class="person__footer">
+                                    <span class="text-3">Сменить профиль</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-wrapper">
+                    <a href="#" class="settings">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#settings" />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="settings__window">
+                        <div class="settings__head">
+                            <h4 class="settings__title text-5">Лицевой счет:</h4>
+                            <span class="settings__sub-title text-3">ID: 3242342353456435</span>
+                        </div>
+                        <div class="settings__body">
+                            <a href="#" class="settings__row wallet text-3">569.00 RUB</a>
+                            <a href="#" class="settings__row text-3">Настройка профиля</a>
+                            <a href="#" class="settings__row text-3">Подключенные услуги</a>
+                            <a href="#" class="settings__row text-3">Выйти из профиля</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="menu">
+                    <div class="icon-wrapper">
+                        <div class="burger">
+                            <i class="burger__line"></i>
+                        </div>
+                    </div>
+
+                </a>
+                <div class="menu__list">
+                    <div class="menu__title">
+                        <p class="title-text text-7 mb-0">Меню</p>
+                    </div>
+                    <a href="./index.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#user" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Личный профиль</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#analityc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Аналитика</p>
+                        </div>
+                    </a>
+                    <a href="./bo.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#calc" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Бухгалтерская отчетность</p>
+                        </div>
+                    </a>
+                    <a href="./task.html" class="menu__item active">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#ticket" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Задачи</p>
+                        </div>
+                    </a>
+                    <a href="./index.html" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#connected" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Подключенные услуги</p>
+                        </div>
+                    </a>
+                    <a href="#" class="menu__item">
+                        <div class="icon-wrapper">
+                            <svg class="icon-style">
+                                <use xlink:href="./img/dest/sprite.svg#company" />
+                            </svg>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="text-4 mb-0">Мои компании</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 pt-4 pb-4">
+                    <div class="analytic page-wrapper">
+                        <h2 class="profile__title title-2 wrapper-title pb-4 pt-3">График финансовых показателей</h2>
+                        <div class="analytic__graph">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pt-4 pb-4">
+                    <div class="analytic__calendar">
+                        <div class="analytic__date-field">
+                            <label for="date-from">
+                                <svg class="icon-calendar">
+                                    <use xlink:href="./img/dest/sprite.svg#calendar" />
+                                </svg>
+                            </label>
+                            <input id="date-from" class="date-picker" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/jquery-3.5.1.slim.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/app.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script type="text/javascript" src="./js/daterangepicker.js"></script>
+
+    <script>
+        $('.date-picer').daterangepicker({
+            "startDate": "02/09/2021",
+            "endDate": "02/15/2021"
+        }, function(start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        });
+    </script> -->
+
+    <script src="./js/simplepicker.js"></script>
+    <script>
+        let simplepicker = new SimplePicker({
+            zIndex: 10
+        });
+
+        document.querySelector('.analytic__calendar').addEventListener('click', function(e) {
+                simplepicker.open();
+            })
+            // $eventLog.innerHTML += '\n\n';
+        simplepicker.on('submit', (date, readableDate) => {
+            console.log(readableDate)
+        });
+
+        // simplepicker.on('close', (date) => {
+        //     $eventLog.innerHTML += 'Picker Closed' + '\n';
+        // });
+    </script>
+</body>
+
+</html>

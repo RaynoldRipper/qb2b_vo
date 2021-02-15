@@ -167,108 +167,63 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 pt-4 pb-4">
-                    <div class="profile">
-                        <div class="custom-form__wrapper">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <form action="" class="line-form pb-3">
-                                        <div class="row profile__info">
-                                            <div class="col-md-8 profile__block-1">
-                                                <h2 class="profile__title title-2 wrapper-title pb-4 pt-3">Личный кабинет
-                                                    <i class="profile__edit">
-                                                        <svg class="profile__edit-icon">
-                                                            <use xlink:href="./img/dest/sprite.svg#edit-button" />                                                            
-                                                        </svg>
-                                                    </i>
-                                                </h2>
-                                                <div class="line-form__field">
-                                                    <input class="line-form__input line-form__field--label-top" type="text" id="input-login" name="login">
-                                                    <label for="input-login" class="line-form__label line-form__label--top">Логин: </label>
-                                                </div>
-                                                <div class="line-form__field line-form__field--label-top">
-                                                    <input class="line-form__input" type="password" name="password" id="input-password">
-                                                    <label for="input-password" class="line-form__label line-form__label--top">Пароль: </label>
-                                                    <i class="line-form__icon line-form__icon--pass-visible">
-                                                        <svg class="line-form__icon-svg">
-                                                            <use xlink:href="./img/dest/sprite.svg#pass-visible" />
-                                                        </svg>
-                                                    </i>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xl-4 col-md-6 profile__col">
-                                                        <div class="line-form__field line-form__field--label-top">
-                                                            <input class="line-form__input" type="text" id="input-surname" name="surname">
-                                                            <label for="input-surname" class="line-form__label line-form__label--top">Фамилия</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-md-6 profile__col">
-                                                        <div class="line-form__field line-form__field--label-top">
-                                                            <input class="line-form__input" type="text" id="input-name" name="name">
-                                                            <label for="input-name" class="line-form__label line-form__label--top">Имя</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-md-12 profile__col">
-                                                        <div class="line-form__field line-form__field--label-top">
-                                                            <input class="line-form__input" type="text" id="input-midname" name="midname">
-                                                            <label for="input-midname" class="line-form__label line-form__label--top">Отчество</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="line-form__field line-form__field--label-top">
-                                                    <input class="line-form__input" type="text" name="phone" id="input-phone">
-                                                    <label for="input-phone" class="line-form__label line-form__label--top">Контактный
-                                                        номер:</label>
-                                                </div>
-                                                <div class="line-form__field line-form__field--label-top">
-                                                    <input class="line-form__input" type="email" id="input-email" name="email">
-                                                    <label for="input-email" class="line-form__label line-form__label--top">E-mail</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 profile__block-2">
-                                                <div class="profile__right pt-3">
-                                                    <div class="profile__avatar profile__avatar--empty">
-                                                        <i class="profile__indicator person__indicator person__indicator--active"></i>
-                                                    </div>
-                                                    <div class="profile__change-avatar">
-                                                        <a href="#" class="profile__link text-3">Удалить или заменить
-                                                            текущую фотографию профиля</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="profile__btn-wrapper">
-                                            <button class="btn gradient-btn">Внести изменения</button>
-                                        </div>
-                                    </form>
+                    <div class="page-wrapper">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2 class="profile__title title-2 wrapper-title pb-4 pt-3">Пополнить счет</h2>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="balance text-right">
+                                    <p class="text-3 color-light-dark uppercase m-0">Текущий баланс:</p>
+                                    <p class="text-6 color-dark bold uppercase m-0">789 RUB</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="profile__current mb-3">
-                                        <h2 class="title-2 wrapper-title pb-4">Компании</h2>
-                                        <div class="profile__company-info">
-                                            <div class="profile__company-info__avatar">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 mb-3">
+                                <div class="border-drop uppercase">
+                                    <p class="text-3 m-0 pr-3 color-light-dark">Сумма к оплате:</p>
+                                    <p class="text-4 m-0 color-dark bold">17 500 RUB</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <div class="border-drop">
+                                    <p class="text-3 m-0 pr-3 color-light-dark uppercase">Оплата по договору:</p>
+                                    <p class="text-4 m-0 color-dark bold uppercase">ИП МУРАТОВ А.А.</p>
+                                    <i class="border-drop__icon">
+                                        <svg class="border-drop__icon__svg">
+                                            <use xlink:href="./img/dest/sprite.svg#drop-arrow" />
+                                        </svg>
+                                    </i>
+                                    <div class="company-list">
+                                        <div class="company-list__item">
+                                            <div class="company-list__avatar">
                                                 <img class="pic" src="./img/dest/company.png" alt="">
                                             </div>
-                                            <div class="profile__company-info__name">
-                                                <span class="profile__company-info__sub-title text-3">Текущий
-                                                    профиль:</span>
-                                                <p class="profile__company-info__title text-5">ООО “Токито-Авто”</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="profile__company-list">
-                                        <div class="profile__company-item mb-3">
-                                            <div class="profile__company-info__avatar">
-                                                <img class="pic" src="./img/dest/company.png" alt="">
-                                            </div>
-                                            <div class="profile__company-info__name">
-                                                <span class="profile__company-info__sub-title text-3">ДОПОЛНИТЕЛЬНАЯ
+                                            <div class="company-list__name">
+                                                <span class="company-list__sub-title text-3">ДОПОЛНИТЕЛЬНАЯ
                                                     КОМПАНИЯ:</span>
-                                                <p class="profile__company-info__title text-5">ип муратов а.а.</p>
-                                                <a href="#" class="profile__link text-3">Выбрать профиль</a>
+                                                <p class="company-list__title text-5">ип муратов а.а.</p>
+                                                <a href="#" class="company-list__link text-3">Выбрать профиль</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <a href="#" class="link-style text-3 mt-2 ml-2">Посмотреть данные плательщика</a>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <div class="border-drop">
+                                    <p class="text-3 m-0 pr-3 color-light-dark uppercase">Способ оплаты:</p>
+                                    <p class="text-4 m-0 color-dark bold">Пластиковая карта</p>
+                                    <i class="border-drop__icon">
+                                        <svg class="border-drop__icon__svg">
+                                            <use xlink:href="./img/dest/sprite.svg#drop-arrow" />
+                                        </svg>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pt-5">
+                                <button class="btn btn-pad gradient-btn">Произвести оплату</button>
                             </div>
                         </div>
                     </div>

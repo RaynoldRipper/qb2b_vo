@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.line-form')) {
         let form = document.querySelector('.line-form');
         let fields = document.querySelectorAll('.line-form__field');
-        let inputs = form.querySelectorAll('input[type=text],input[type=tel], input[type=password]');
+        let inputs = form.querySelectorAll('input[type=text],input[type=tel], input[type=password], input[type=email]');
 
         // Проверка на предзаполненность
         function form_load_check(el) {
@@ -476,4 +476,20 @@ document.addEventListener('DOMContentLoaded', function() {
     $(function() {
         $('[data-toggle="popover"]').popover()
     })
+
+    // Переключатьель видимости пароля 
+    if (document.querySelector('.line-form__icon--pass-visible')) {
+        let passToggler = document.querySelector('.line-form__icon--pass-visible');
+        let svgIcon = passToggler.querySelector('.line-form__icon-svg use')
+        let currentInput = passToggler.closest('.line-form__field').querySelector('.line-form__input')
+        passToggler.addEventListener('click', function(e) {
+            if (svgIcon.href.baseVal == './img/dest/sprite.svg#pass-visible') {
+                svgIcon.href.baseVal = './img/dest/sprite.svg#pass-invisible'
+                currentInput.type = 'text'
+            } else {
+                svgIcon.href.baseVal = './img/dest/sprite.svg#pass-visible'
+                currentInput.type = 'password'
+            }
+        })
+    }
 });
