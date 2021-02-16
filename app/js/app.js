@@ -107,10 +107,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let settingWindow = document.querySelector('.settings__window');
 
     menuBtn.addEventListener('click', function() {
+        event.preventDefault();
         menuBtn.classList.toggle('active');
         menu.classList.toggle('active');
     })
     settingBtn.addEventListener('click', function() {
+        event.preventDefault();
         settingBtn.classList.toggle('active');
         settingWindow.classList.toggle('active');
     })
@@ -313,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let template = `
             <div class="company__documents-item mb-3">
                 <div class="company__documents-picture">
-                    <img class="company__documents-image" src="./img/dest/mime-image.png" alt="">
+                    <img class="company__documents-image" src="http://192.168.88.59/wp-content/uploads/site-pictures/mime-image.png" alt="">
                 </div>
                 <div class="company__documents-descriptins">
                     <div class="company__documents-name text-4">${file.name}</div>
@@ -473,23 +475,47 @@ document.addEventListener('DOMContentLoaded', function() {
         //     })
         // });
     }
-    $(function() {
-        $('[data-toggle="popover"]').popover()
-    })
+    jQuery(function($) {
+        $(document).ready(function() {
+            $(function() {
+                $('[data-toggle="popover"]').popover()
+            })
+        });
+    });
+
 
     // Переключатьель видимости пароля 
     if (document.querySelector('.line-form__icon--pass-visible')) {
         let passToggler = document.querySelector('.line-form__icon--pass-visible');
         let svgIcon = passToggler.querySelector('.line-form__icon-svg use')
-        let currentInput = passToggler.closest('.line-form__field').querySelector('.line-form__input')
+        let passInput = passToggler.closest('form').querySelectorAll('input[type=password]')
+
         passToggler.addEventListener('click', function(e) {
-            if (svgIcon.href.baseVal == './img/dest/sprite.svg#pass-visible') {
-                svgIcon.href.baseVal = './img/dest/sprite.svg#pass-invisible'
-                currentInput.type = 'text'
+            if (svgIcon.href.baseVal == 'http://192.168.88.59/wp-content/uploads/2021/02/sprite.svg#pass-visible') {
+                svgIcon.href.baseVal = 'http://192.168.88.59/wp-content/uploads/2021/02/sprite.svg#pass-invisible'
+                for (let i = 0; passInput.length > i; i++) {
+                    passInput[i].type = 'text'
+                }
             } else {
-                svgIcon.href.baseVal = './img/dest/sprite.svg#pass-visible'
-                currentInput.type = 'password'
+                svgIcon.href.baseVal = 'http://192.168.88.59/wp-content/uploads/2021/02/sprite.svg#pass-visible'
+                for (let i = 0; passInput.length > i; i++) {
+                    passInput[i].type = 'password'
+                }
             }
         })
     }
+    // if (document.querySelector('.line-form__icon--pass-visible')) {
+    //     let passToggler = document.querySelector('.line-form__icon--pass-visible');
+    //     let svgIcon = passToggler.querySelector('.line-form__icon-svg use')
+    //     let passInput = passToggler.closest('.line-form__field').querySelector('.line-form__input')
+    //     passToggler.addEventListener('click', function(e) {
+    //         if (svgIcon.href.baseVal == './img/dest/sprite.svg#pass-visible') {
+    //             svgIcon.href.baseVal = './img/dest/sprite.svg#pass-invisible'
+    //             passInput.type = 'text'
+    //         } else {
+    //             svgIcon.href.baseVal = './img/dest/sprite.svg#pass-visible'
+    //             passInput.type = 'password'
+    //         }
+    //     })
+    // }
 });

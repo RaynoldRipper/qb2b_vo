@@ -5,17 +5,26 @@
     }
     &__calendar {
         @include wrapper;
+        display: flex;
+        justify-content: space-between;
     }
-}
-
-.icon-calendar {
-    width: 28px;
-    height: 26px;
-    fill: $gray-400;
-    margin-right: 20px;
-}
-
-.date-picer {
-    border: none;
-    color: $gray-600;
+    &__view {
+        @include wrapper;
+        &__item {
+            color: $gray-600;
+            user-select: none;
+            border-bottom: 1px solid $gray-300;
+            &:first-child {
+                border-top: 1px solid $gray-300;
+            }
+        }
+    }
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__operacy {
+        @include wrapper;
+    }
 }

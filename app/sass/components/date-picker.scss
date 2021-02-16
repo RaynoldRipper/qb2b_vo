@@ -1,0 +1,37 @@
+.date-picker {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    &__label {
+        margin-bottom: 0;
+    }
+    &__input {
+        transition: all .3s;
+        border: none;
+        color: $gray-500;
+        max-width: 90px;
+        &::placeholder {
+            color: $gray-500;
+        }
+    }
+    &:hover {
+        .icon-calendar {
+            fill: $gray-600;
+        }
+        .date-picker__input {
+            color: $gray-700;
+        }
+    }
+}
+
+.icon-calendar {
+    transition: all .3s;
+    width: 28px;
+    height: 26px;
+    fill: $gray-400;
+    margin-right: 8px;
+}

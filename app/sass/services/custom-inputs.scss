@@ -13,7 +13,6 @@ input[type='range'] {
     height: 4px;
     margin: 10px 0;
     -webkit-appearance: none;
-
     // overflow: hidden;
     &:focus {
         outline: none;
@@ -23,14 +22,12 @@ input[type='range'] {
 .range {
     &__total {
         transition: all .3s;
-
         &.hide {
             transform: translateX(-50px);
             opacity: 0;
             visibility: hidden;
         }
     }
-
     &__count {
         &.active {
             position: absolute;
@@ -42,7 +39,6 @@ input[type='range'] {
 }
 
 input[type='range']::-webkit-slider-runnable-track {
-
     width: 100%;
     height: 4px;
     cursor: pointer;
@@ -101,54 +97,34 @@ input[type="range"]::-ms-fill-upper {
         z-index: -1;
         opacity: 0;
     }
-
     &__radio {
         padding-right: 15px;
-
         .calc__label-radio {
             &:focus {
                 outline: 1px solid #000000;
             }
-
             &::before {
                 content: '';
                 display: inline-block;
                 width: 15px;
                 height: 15px;
-                background-color: $gray-400;
+                background-color: $white;
+                border: 3px solid $gray-400;
                 border-radius: 50%;
                 vertical-align: middle;
                 margin-right: 10px;
                 transition: all .2s;
             }
         }
-
-        .calc__label-radio::after {
-            content: '';
-            position: absolute;
-            top: 7px;
-            left: 3px;
-            display: inline-block;
-            width: 9px;
-            height: 9px;
-            background-color: $white;
-            border-radius: 50%;
-            vertical-align: middle;
-            margin-right: 10px;
-            transition: all .2s;
-        }
     }
-
     &__range {
         &-wrapper {
             width: 100%;
         }
     }
-
     &__text {
         position: relative;
         width: 100%;
-
         &-input {
             width: 100%;
             border: 2px solid transparent;
@@ -156,18 +132,15 @@ input[type="range"]::-ms-fill-upper {
             border-bottom: 2px solid $gray-300;
             outline: none;
             transition: all .3s;
-
             &:focus {
                 border-color: $primary;
             }
-
             &:focus~.custom__label-text {
                 top: -10px;
                 font-size: 12px;
             }
         }
     }
-
     &__checkbox {
         &-input {
             position: absolute;
@@ -175,7 +148,6 @@ input[type="range"]::-ms-fill-upper {
             opacity: 0;
         }
     }
-
     &__label {
         &-text {
             background-color: $white;
@@ -187,10 +159,8 @@ input[type="range"]::-ms-fill-upper {
             top: 10px;
             transition: all .3s;
         }
-
         &-checkbox {
             cursor: pointer;
-
             &::before {
                 content: '';
                 transition: all .3s;
@@ -225,18 +195,13 @@ input[type="range"]::-ms-fill-upper {
     color: $gray-500;
 }
 
-.custom__radio-input:checked~.calc__label-radio::after {
-    width: 7px;
-    height: 7px;
-    top: 8px;
-    left: 4px;
-}
-.custom__field input:focus ~ .calc__label-radio::before,.custom__field input:focus ~ .custom__label-checkbox::before{
+.custom__field input:focus~.calc__label-radio::before,
+.custom__field input:focus~.custom__label-checkbox::before {
     box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(132, 157, 255, 0.4);
 }
 
 .custom__radio-input:checked~.calc__label-radio::before {
-    background-color: $primary;
+    border: 4px solid #849dff;
 }
 
 .custom__checkbox-input:checked~.custom__label-checkbox {
@@ -250,17 +215,6 @@ input[type="range"]::-ms-fill-upper {
     .custom {
         &__radio {
             padding-right: 15px;
-
-            .calc__label-radio::after {
-                content: '';
-                position: absolute;
-                top: 5px;
-                left: 3px;
-            }
         }
-    }
-
-    .custom__radio-input:checked~.calc__label-radio::after {
-        top: 6px;
     }
 }

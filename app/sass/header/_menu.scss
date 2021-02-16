@@ -11,7 +11,7 @@
     display: block;
     height: 100%;
     border-left: 1px solid $gray-400;
-    &.active{
+    &.active {
         .icon-style {
             fill: #ff9784;
         }
@@ -23,7 +23,6 @@
             }
         }
     }
-
     &__window {
         opacity: 0;
         z-index: -1;
@@ -42,7 +41,6 @@
             opacity: 1;
             z-index: 5;
         }
-
         &::after {
             content: '';
             display: block;
@@ -53,32 +51,25 @@
             border-bottom: 14px solid $white;
         }
     }
-
     &-wrapper {
         position: relative;
     }
-
     &__title {
         margin-bottom: 0;
     }
-
     &__sub-title {
         color: $gray-400;
     }
-
     &__head {
         padding: 0 10px;
     }
-
     &__row {
         padding: 12px 10px;
         display: block;
         color: $gray-600;
-
         &:not(:last-child) {
             border-bottom: 1px solid $gray-300
         }
-
         &:hover {
             color: $black
         }
@@ -93,7 +84,6 @@
         height: 100%;
         cursor: pointer;
     }
-
     &-style {
         display: block;
         margin: auto;
@@ -109,20 +99,16 @@
     position: relative;
     z-index: 12;
     border-left: 1px solid transparent;
-
     &.active {
         border-left: 1px solid transparent;
-
         .burger__line,
         .burger__line::before,
         .burger__line::after {
             background-color: #ff9784;
         }
     }
-
     .icon-wrapper {
         &:hover .burger {
-
             .burger__line,
             .burger__line::after,
             .burger__line::before {
@@ -130,7 +116,6 @@
             }
         }
     }
-
     &__title {
         @include menu-padding;
         @include header-padding;
@@ -141,14 +126,12 @@
         transition: all .3s;
         border-bottom: 1px solid $gray-400;
         box-sizing: content-box;
-
         .title-text {
             opacity: 0;
             transform: translateX(35px);
             transition: all .3s;
         }
     }
-
     &__list {
         position: absolute;
         right: 0;
@@ -158,10 +141,10 @@
         transition: all .3s;
         z-index: 10;
         min-height: 100vh;
+        padding: 0;
         .icon-wrapper {
             position: relative;
             padding: 8px;
-
             &::after {
                 content: '';
                 display: block;
@@ -178,12 +161,10 @@
             }
         }
     }
-
     &__item {
         display: flex;
         align-items: center;
         @include menu-padding;
-
         .text-wrapper {
             color: $gray-400;
             opacity: 0;
@@ -192,38 +173,30 @@
             overflow: hidden;
             max-width: 0;
         }
-
         .icon-style {
             z-index: 7;
         }
-
         &.active {
             .icon-wrapper::after {
                 opacity: 1;
             }
-
             .icon-style {
                 fill: $white;
             }
-
             .text-wrapper {
                 color: $black;
                 font-weight: 500;
                 text-transform: uppercase;
             }
         }
-
         &:hover {
             text-decoration: none;
-
             & .icon-wrapper::after {
                 opacity: 1;
             }
-
             .icon-wrapper .icon-style {
                 fill: $white;
             }
-
             .text-wrapper {
                 color: $black;
             }
@@ -237,19 +210,16 @@
     width: 26px;
     height: 18px;
     box-sizing: content-box;
-
     &__line {
         margin: auto;
         position: relative;
         @include burger-lines;
-
         &::after {
             content: '';
             position: absolute;
             bottom: -6px;
             @include burger-lines;
         }
-
         &::before {
             position: absolute;
             top: -6px;
@@ -262,7 +232,6 @@
 .menu__list.active {
     transform: none;
     max-width: 350px;
-
     .text-wrapper {
         display: block;
         opacity: 1;
@@ -270,11 +239,9 @@
         max-width: 350px;
         padding-left: 10px;
     }
-
     .menu__item.active .text-wrapper {
         padding-left: 20px;
     }
-
     .menu__title {
         .title-text {
             opacity: 1;
@@ -300,15 +267,12 @@
         &__list {
             max-width: 0;
         }
-
         &__item {
             padding: 10px 16px;
         }
-
         &__title {
             padding-left: 16px;
         }
-
         border-left: 1px solid $gray-400;
     }
     .burger,
@@ -316,11 +280,11 @@
         max-width: 20px;
         max-height: 20px;
     }
-    .settings{
-        &__window{
+    .settings {
+        &__window {
             right: -18px;
             top: 108%;
-            &::after{
+            &::after {
                 right: 40px;
             }
         }
