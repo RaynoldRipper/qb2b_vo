@@ -2,7 +2,93 @@
 // support variables
 var render = 0;
 var renderedItem;
+let ajaxurl = '/wp-admin/admin-ajax.php';
+let handlerurl = '/wp-content/themes/qb2b-vo/functions/handler.php'
+let ajaxData = {
+    'action': 'handler',
+    'nonce_code': myajax.nonce
+}
+
 // global functions 
+
+// Тосты уведомлений
+function toast(title = '', body = '', extraClass = '', subTitle = '') {
+    jQuery(function($) {
+        $(document).ready(function() {
+            let toastContainer = document.querySelector('.toast-container')
+            if (document.querySelector('.dynamic-toast-wrapper')) {
+                let toasts = document.querySelectorAll('.dynamic-toast-wrapper')
+                let lastToast;
+                toasts.forEach(element => {
+                    lastToast = element.dataset.toaster
+                });
+                lastToast++
+                let html = document.createElement('div')
+                html.className = 'dynamic-toast-wrapper dynamic-toast-' + lastToast;
+                html.dataset.toaster = lastToast
+                html.innerHTML = `
+                <div class="toast dynamic-toast ${extraClass}" role="alert" aria-live="assertive" data-animation="true" aria-atomic="true">
+                    <div class="toast-header">
+                        <div class="sub-logo" class="rounded mr-2"></div>
+                        <strong class="mr-auto">${title}</strong>
+                        <small class="text-muted">${subTitle}</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        ${body}
+                    </div>
+                </div>`
+                toastContainer.append(html);
+                $('.dynamic-toast-' + lastToast + ' .toast').toast({
+                    delay: 6000,
+                    autohide: true
+                })
+                $('.dynamic-toast-' + lastToast + ' .toast').toast('show')
+                $('.dynamic-toast-' + lastToast + ' .toast').on('hidden.bs.toast', (e) => {
+                    $('.dynamic-toast-' + lastToast).remove();
+                })
+            } else {
+                let html = document.createElement('div')
+                html.className = 'dynamic-toast-wrapper dynamic-toast-1'
+                html.dataset.toaster = 1
+                html.innerHTML = `
+                <div class="toast dynamic-toast ${extraClass}" role="alert" aria-live="assertive" data-animation="true" aria-atomic="true">
+                    <div class="toast-header">
+                        <div class="sub-logo" class="rounded mr-2"></div>
+                        <strong class="mr-auto">${title}</strong>
+                        <small class="text-muted">${subTitle}</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        ${body}
+                    </div>
+                </div>`
+                toastContainer.append(html);
+                $('.toast').toast({
+                    delay: 6000,
+                    autohide: true
+                })
+                $('.toast').toast('show')
+                $('.toast').on('hidden.bs.toast', (e) => {
+                    $('.dynamic-toast-1').remove();
+                })
+            }
+        });
+    });
+
+}
+
+function ajaxDataReset() {
+    ajaxData = {
+        'action': 'handler',
+        'nonce_code': myajax.nonce
+    }
+}
+
 function fadeDelete(time, elem) {
     elem.style.transition = 'all .' + time + 's'
     elem.style.opacity = '0';
@@ -140,10 +226,17 @@ document.addEventListener('DOMContentLoaded', function() {
             element.addEventListener('focus', (e) => {
                 let field = e.target.closest('.line-form__field');
                 field.classList.add('field-focus')
+                console.log(element.checkValidity())
+                if (element.checkValidity() === true) {
+                    field.classList.add('field-unvalid')
+                } else field.classList.remove('field-unvalid')
             })
             element.addEventListener('blur', (e) => {
                 let field = e.target.closest('.line-form__field');
                 field.classList.remove('field-focus')
+                if (element.checkValidity() === true) {
+                    field.classList.add('field-unvalid')
+                } else field.classList.remove('field-unvalid')
             })
             element.addEventListener('input', (e) => {
                 let currentField = element.closest('.line-form__field');
@@ -152,6 +245,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (element.value.length <= 0) {
                     currentField.classList.remove('line-form__field--filled');
                 }
+
+                if (element.checkValidity() === true) {
+                    currentField.classList.add('field-unvalid')
+                } else currentField.classList.remove('field-unvalid')
             })
         });
     }
@@ -484,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // Переключатьель видимости пароля 
+    // Переключатель видимости пароля 
     if (document.querySelector('.line-form__icon--pass-visible')) {
         let passToggler = document.querySelector('.line-form__icon--pass-visible');
         let svgIcon = passToggler.querySelector('.line-form__icon-svg use')
@@ -504,6 +601,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
     }
+
+    // Обработчик формы регистрации
+    jQuery(function($) {
+        $(document).ready(function() {
+            if (document.getElementById('registration-form')) {
+                let registrationForm = document.getElementById('registration-form');
+                let registrationBtn = document.getElementById('registration-btn');
+                registrationBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let formData = new FormData(registrationForm)
+                    formData.append('action', 'handler')
+                    formData.append('nonce_code', myajax.nonce)
+                    formData.append('function', 'registration')
+                        // ajaxData.function = 'registration'
+                    $.ajax({
+                        url: ajaxurl,
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function(data) {
+                            var array = data.split("[").join("").split("]").slice(0, -1);
+                            array.forEach(element => {
+                                toast('Ошибка', element, 'validation-error')
+                            });
+                        }
+                    })
+                    ajaxDataReset();
+                })
+            }
+        });
+    });
+
+    // Маска для номеров телефона
+    if (document.querySelector('input[type=tel]')) {
+        let phones = document.querySelectorAll('input[type=tel]')
+        for (let i = 0; phones.length > i; i++) {
+            phones[i].addEventListener('input', function(e) {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                e.target.value = (x[1] ? ' ' + 8 : '') + (x[2] ? ' ' + x[2] : '') + (x[3] ? '-' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+            });
+        }
+    }
+
     // if (document.querySelector('.line-form__icon--pass-visible')) {
     //     let passToggler = document.querySelector('.line-form__icon--pass-visible');
     //     let svgIcon = passToggler.querySelector('.line-form__icon-svg use')

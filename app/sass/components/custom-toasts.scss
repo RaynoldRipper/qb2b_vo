@@ -1,0 +1,12 @@
+.validation-error {
+    transition: all .3s !important;
+    margin-bottom: 15px;
+}
+
+.toast {
+    &-container {
+        position: fixed;
+        top: 100px;
+        right: 100px;
+    }
+}
